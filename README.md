@@ -103,7 +103,7 @@ Order
 - phone_number
 - created_at (timestamp when the order is created)
 
-### OrderItem
+OrderItem
 
 - id (auto, primary key)  
 - order (foreign key to Order)  
