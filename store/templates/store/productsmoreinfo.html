@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ product.name }}</title>
+</head>
+<body>
+    <h1>{{ product.name }}</h1>
+
+    {% if product.image %}
+        <img src="{{ product.image }}" alt="{{ product.name }}" width="300">
+    {% endif %}
+
+    <p>{{ product.description }}</p>
+    <p>Price: ₸{{ product.price }}</p>
+    <p>
+    <a href="{% url 'addtocart' product.id %}">Add to cart</a>
+    </p>
+    <p>
+        <a href="{% url 'cartpage' %}">Open cart</a>
+    </p>
+
+    <p><a href="{% url 'productspage' %}">Back to products</a></p>
+</body>
+</html>
+

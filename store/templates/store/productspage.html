@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Products</title>
+</head>
+<body>
+    <p><a href="{% url 'cartpage' %}">Open cart</a></p>
+    <h1>Products</h1>
+    
+
+    {% for product in products %}
+        <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description|truncatechars:100 }}</p>
+            <p>Price: ₸{{ product.price }}</p>
+
+            {% if product.image %}
+                <img src="{{ product.image }}" alt="{{ product.name }}" width="200">
+            {% endif %}
+
+            <p>
+            <form method="post" action="{% url 'addtocart' product.id %}">
+         {% csrf_token %}
+        <input 
+        type="number" 
+        name="quantity" 
+        min="1" 
+        value="1"
+        required
+         >
+        <button type="submit">Add to cart</button>
+        </form>
+                <a href="{% url 'productsmoreinfo' product.id %}">View details</a>
+            </p>
+        </div>
+    {% empty %}
+        <p>No products yet.</p>
+    {% endfor %}
+</body>
+</html>

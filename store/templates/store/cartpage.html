@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+</head>
+<body>
+    <h1>Your Cart</h1>
+
+    <p><a href="{% url 'productspage' %}">Back to products</a></p>
+
+    {% if items %}
+        {% for item in items %}
+            <div style="border:1px solid #ccc; padding:10px; margin:10px 0;">
+                <h3>{{ item.product.name }}</h3>
+                <p>Quantity: {{ item.quantity }}</p>
+                <p>Price: ₸{{ item.product.price }}</p>
+                <p>Subtotal: ₸{{ item.subtotal }}</p>
+                <p>
+                    <a href="{% url 'removecartitem' item.product.id %}">Remove</a>
+                </p>
+            </div>
+        {% endfor %}
+
+        <h2>Total: ₸{{ total }}</h2>
+        <p><a href="{% url 'checkoutpage' %}">Go to checkout</a></p>
+    {% else %}
+        <p>Your cart is empty.</p>
+    {% endif %}
+</body>
+</html>
