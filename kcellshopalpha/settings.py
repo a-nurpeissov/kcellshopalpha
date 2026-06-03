@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-acb9lrs*d$g47n60-2jdfaw5mi9@(84c=yg-xsa1oi2@(#bo1x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    "kcellshopalpha.onrender.com",
+]
 
 
 # Application definition
