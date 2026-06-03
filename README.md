@@ -138,3 +138,17 @@ Containerization:
 
 Also keep in mind that I used Brew version of Docker, Django and postgresql on MacOS to create this app, the command lines may differ depending on your OS.
 
+---
+
+P.S.:
+
+The repository includes a datadump.json file with example products and orders.
+
+To load it after the containers are running:
+
+bash
+docker compose exec web python manage.py loaddata datadump.json
+
+
+This will insert the sample Product, Order, and OrderItem records into the database.
+
